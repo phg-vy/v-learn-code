@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        margin: 0px;
+      }
+      .text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+      }
+
+      .button {
+        background: rgb(56, 56, 126);
+        width: 150px;
+        height: 80px;
+        border-radius: 16px;
+        transition: all 1s;
+        z-index: 1;
+      }
+
+      .button:hover {
+        background-color: rgb(109, 109, 218);
+        border-radius: 0px;
+      }
+      .button:hover .list {
+        opacity: 1;
+        top: 80px;
+      }
+
+      .list {
+        position: absolute;
+        left: 0;
+        top: 0px;
+        width: 330px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.205);
+        opacity: 0;
+        transition: all 1s;
+        width: 0;
+        height: 0;
+      }
+
+      .link {
+        background: white;
+        width: 300px;
+        height: 80px;
+        color: black;
+        align-content: center;
+        padding-left: 30px;
+        border-bottom: 2px solid rgb(56, 56, 126);
+        transition: all 1s;
+      }
+
+      .link:nth-last-child(1) {
+        border-bottom: none;
+      }
+      .link:hover {
+        background-color: rgb(112, 97, 162);
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="text button">
+      <h1>Button</h1>
+      <div class="list">
+        <div class="link">Link 1</div>
+        <div class="link">Link 2</div>
+        <div class="link">Link 3</div>
+      </div>
+    </div>
+  </body>
+</html>

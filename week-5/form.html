@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="form-style.css">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+    <div class="all">
+        <h2>Sign up</h2>
+
+        <div class="group basic-info">
+            <div class="group1">
+                <div class="num">1</div>
+                <div>Your basic info</div>
+            </div>
+            <form>
+                <label for="fname">Name</label>
+                <br>
+                <input type="text" id="fname" placeholder="Ghi tên đi nè" >
+                <br>
+                <label for="femail">Email</label>
+                <br>
+                <input type="email" id="femail" placeholder="Ghi email đi nè" >
+                <br>
+                <label for="fpw">Password</label>
+                <br>
+                <input type="password" id="fpw" placeholder="Ghi pw đi nè" >
+                <br>
+                <label for="fage">Age</label>
+                <br>
+                <input type="radio" name="age" id="fage-under" class="color">
+                <label for="fage-under">Under 13</label>
+                <br>
+                <input type="radio" name="age" id="fage-over">
+                <label for="fage-over">Over 13</label>
+            </form>
+        </div>
+
+        <br>
+        <br>
+
+
+        <div class="group profile">
+            <div class="group1">
+                <div class="num">2</div>
+                <div>Your profile</div>
+            </div>
+            <br>
+            <form>
+                <label for="fbio">Bio</label>
+                <br>
+                <textarea id="fbio" placeholder="Ghi đi" ></textarea>
+                <br>
+                <label for="frole">Role</label>
+                <br>
+                <select id="frole">
+                    <optgroup label="Web">
+                        <option value="Front-end dev">Front-end dev</option>
+                        <option value="Php dev">PHP dev</option>
+                      </optgroup>
+                      <optgroup label="Mobile">
+                        <option value="ios">iOS dev</option>
+                        <option value="android">Android dev</option>
+                      </optgroup>
+                      <optgroup label="Business">
+                        <option value="owner">Bussiness Owner</option>
+                        <option value="free">Freelancer</option>
+                      </optgroup>
+                </select>
+                <br>
+                Interest
+                <br>
+                <form action="">
+                    <input type="checkbox" id="fdev">
+                    <label for="fdev">Development</label>
+                    <br>
+                    <input type="checkbox" id="fdes">
+                    <label for="fdev">Design</label>
+                </form>
+        </div>
+
+            <br>
+    
+
+            <button class="button">Sign up</button>
+
+
+        </form>
+        <br>
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+    </div>
+    
+</body>
+</html>

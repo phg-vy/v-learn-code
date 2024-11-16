@@ -1,0 +1,45 @@
+body {
+  background: #191919;
+  margin: 6px;
+  font-family: "Inter";
+}
+.all {
+  width: 100%;
+  height: 100vh;
+}
+h3 {
+  margin: 0 0 10px 0;
+}
+.flex {
+  display: flex;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex-gr-1 {
+  flex-grow: 1;
+}
+.flex-gr-10 {
+  flex-grow: 10;
+}
+.s-style {
+  border-radius: 8px;
+  font-size: 16px;
+  justify-content: center;
+  align-items: center;
+}
+.gap-6 {
+  gap: 6px;
+}
+.all > div:first-child {
+  background: #fc3935;
+}
+.s2-s3 > div:first-child {
+  background: #01bf9b;
+}
+.s2-s3 > div:last-child {
+  background: #ff9817;
+}
+.s4 {
+  background: #ecf0f1;
+}

@@ -1,0 +1,37 @@
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: green;
+}
+
+a:hover {
+  background-color: lightblue;
+}
+
+p,
+pre,
+a,
+li {
+  color: black;
+}
+
+table {
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+tr:hover {
+  background-color: green;
+}

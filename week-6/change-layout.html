@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change Layout</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Neucha&family=Patrick+Hand&family=Patrick+Hand+SC&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Patrick Hand SC", serif;
+        width: 100vw;
+        height: 100vh;
+        background-image: repeating-linear-gradient(
+          #f6eee3,
+          #f6eee3 20px,
+          #e5decf 20px,
+          #e5decf 21px
+        );
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .all {
+        display: flex;
+        gap: 4px;
+      }
+      .border {
+        border: 1.6px solid black;
+        border-top-left-radius: 50px 5px;
+        border-bottom-left-radius: 5px 50px;
+        border-top-right-radius: 5px 50px;
+        border-bottom-right-radius: 50px 5px;
+        background-color: white;
+      }
+      .container1 {
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+        background: white;
+        padding: 20px;
+        gap: 20px;
+        opacity: 0;
+        margin-top: 20px;
+        transition: all 300ms;
+      }
+
+      .display1 {
+        display: grid;
+        gap: 20px;
+      }
+
+      .container2 {
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+        background: white;
+        padding: 20px;
+        gap: 20px;
+        opacity: 0;
+        margin-top: 20px;
+        margin-left: -34px;
+        transition: all 300ms;
+      }
+      .display2 {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 20px;
+      }
+
+      .box {
+        cursor: pointer;
+        background: white;
+        width: auto;
+        height: auto;
+        padding: 20px;
+        align-content: center;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.139);
+        transform: translate(0, 0);
+        transition: all 300ms;
+      }
+
+      .box:hover {
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.406);
+        transform: translate(0, 5%);
+        color: rgb(9, 255, 0);
+      }
+
+      .box1 {
+        color: green;
+      }
+      .box2 {
+        color: blue;
+      }
+      .box3 {
+        color: red;
+      }
+
+      .icon-container {
+        position: relative;
+        display: inline-block;
+        width: 27px;
+        height: 27px;
+      }
+      .icon {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        text-align: center;
+        align-content: center;
+        transition: all 300ms;
+      }
+
+      label:has(input:checked) {
+        background-color: #2b6eff;
+        & .icon {
+          color: #ffffff;
+        }
+      }
+      input[value="view-list"]:checked + .container1 {
+        opacity: 1;
+      }
+
+      input[value="grid-view"]:checked + .container2 {
+        opacity: 1;
+      }
+
+      input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="all">
+      <label for="icon-view-list" class="icon-container border">
+        <input
+          type="radio"
+          name="view"
+          id="icon-view-list"
+          value="view-list"
+          checked
+        />
+
+        <div class="container1 border">
+          <b>FROM OUR BLOG</b>
+          <div class="display1">
+            <div class="box box1 border">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            </div>
+            <div class="box box2 border">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            </div>
+            <div class="box box3 border">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            </div>
+          </div>
+        </div>
+
+        <i class="material-symbols-rounded icon" style="font-size: 20px">view_list</i>
+      </label>
+
+      <label for="icon-grid-view" class="icon-container border">
+        <input type="radio" name="view" id="icon-grid-view" value="grid-view" />
+        <div class="container2 border">
+          <b>FROM OUR BLOG</b>
+          <div class="display2">
+            <div class="box box1 border">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            </div>
+            <div class="box box2 border">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            </div>
+            <div class="box box3 border">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            </div>
+          </div>
+        </div>
+        <i class="material-symbols-rounded icon" style="font-size: 20px">grid_view</i>
+      </label>
+    </div>
+  </body>
+</html>

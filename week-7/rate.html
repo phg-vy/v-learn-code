@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rate</title>
+    <style>
+      body {
+        margin: 0;
+
+      }
+      .layout{
+        height: 100vh;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .layout1{
+        display:flex;
+        flex-direction:row-reverse;
+      
+      }
+
+      .layout2{
+        display: flex;
+      }
+
+
+      label::after{
+        content:"\2605";
+      }
+      label{
+        color: lightgrey;
+
+      }
+      .layout1 input:checked ~ label, .layout1 input:hover ~ label {
+        color: orange;
+      }
+
+      .layout2 label:has(~input:checked), .layout2 label:has(~input:hover) {
+        color: orange;
+      }
+      
+
+
+
+
+
+
+      input{
+        /* opacity:0; 
+        width:0;
+        height:0; */
+        display:none
+      }
+
+    </style>
+    
+  </head>
+  <body class="layout">
+    <div class="layout1">
+      <input type="radio" id="star5" name="rate" value="rate-5" />
+      <label for="star5"></label>
+      <input type="radio" id="star4" name="rate" value="rate-4" />
+      <label for="star4"></label>
+      <input type="radio" id="star3" name="rate" value="rate-3" />
+      <label for="star3"></label>
+      <input type="radio" id="star2" name="rate" value="rate-2" />
+      <label for="star2"></label>
+      <input type="radio" id="star1" name="rate" value="rate-1" />
+      <label for="star1"></label>
+    </div>
+
+    <div class="layout2">
+      <label for="star1-2"></label>
+      <input type="radio" id="star1-2" name="rating" value="rate-1" />
+      <label for="star2-2"></label>
+      <input type="radio" id="star2-2" name="rating" value="rate-2" />
+      <label for="star3-2"></label>
+      <input type="radio" id="star3-2" name="rating" value="rate-3" />
+      <label for="star4-2"></label>
+      <input type="radio" id="star4-2" name="rating" value="rate-4" />
+      <label for="star5-2"></label>
+      <input type="radio" id="star5-2" name="rating" value="rate-5" />
+    </div>
+
+
+  </body>
+</html>
