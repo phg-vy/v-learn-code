@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+/* === Menu Wrapper === */
+.menu-wrapper {
+  --menu-bg: hsl(240, 10%, 20%);
+  --menu-trsdu: .2s;
+  --menu-trstf: cubic-bezier(.4, 0, .2, 1);
+  --menu-pb: .75em;
+  --menu-pi: 1.5em;
+
+  align-items: center;
+  background: var(--menu-bg);
+  color: var(--menu--c, hsl(240, 0%, 85%));
+  display: flex;
+  font-size: var(--menu-fz, .75rem);
+  justify-content: space-between;
+  margin-inline: auto;
+  max-inline-size: var(--menu-desktop-w, 1200px);
+  padding:
+    var(--menu-pb)
+    calc(env(safe-area-inset-right) + var(--menu-pi))
+    var(--menu-pb)
+    calc(env(safe-area-inset-left) + var(--menu-pi));
+}
+.menu-wrapper:has(input:checked) .menu-flyout { translate: 0; }
+.menu-wrapper a {
+  align-items: center;
+  color: inherit;
+  display: flex;
+  gap: .5ch; /* gap between icon and text */
+  line-height: var(--menu-a-lh, 2.5);
+  transition: color var(--menu-trsdu) var(--menu-trstf);
+  text-decoration: none;
+}
+.menu-toggle-label { z-index: 1; }
+/*.menu-toggle-label:focus-within { outline: 2px solid; }*/
+
+/* === Flyout === */
+.menu-flyout {
+  background: var(--menu-flyout-bg, inherit);
+  color: var(--menu-flyout-c, inherit);
+  display: flex;
+  flex-direction: column;
+  font-size: var(--menu-flyout-fz, 150%);
+  inset: 0 var(--menu-flyout-offset, 0) 0 0;
+  justify-content: space-between;
+  padding: var(--menu-flyout-p, 4ch 2ch 2ch);
+  position: fixed;
+  transition: translate var(--menu-trsdu) var(--menu-trstf);
+  translate: -100vw 0;
+}
+
+/* === Menus === */
+.menu-cta, .menu-main {
+  display: flex;
+  flex: 1;
+  flex-direction: var(--menu-flyout-dir, column);
+}
+.menu-cta {
+  gap: clamp(0.5rem, -0.125rem + 2vw, 1rem);
+  justify-content: end;
+}
+.menu-main { gap: clamp(0.5rem, -3.875rem + 14vw, 4rem);}
+
+@media (min-width: 768px) {
+  .menu-cta, .menu-main { flex: unset; }
+  .menu-flyout {
+    --menu-flyout-dir: row;
+    display: contents;
+    color: inherit;
+    font-size: revert;
+  }
+  .menu-toggle-label { display: none; }
+  .menu-wrapper { /* stretch background-color to edge-of-screen */
+    border-image: conic-gradient(var(--menu-bg, hsl(240, 10%, 20%)) 0 0) fill 0//100vw;
+    clip-path: polygon(-100vw 0, 100vw 0, 100vw 100%, -100vw 100%);
+  }
+}
+/* === Prevent Scrolling, when flyout is visible === */
+@media (max-width: 767px) {
+  body:has(.menu-wrapper):has(input:checked) {
+    overflow: hidden;
+  }
+}
+@media(hover: hover) {
+  .menu-wrapper a:hover { color: var(--menu-a-h-c, hsl(240, 0%, 100%)); }
+}
+
+/* === Menu Toggle === */
+.menu-toggle {
+  --menu-toggle-bdrs: 4px;
+  --menu-toggle-gap: 8px;
+  --menu-toggle-h: 2px;
+  --menu-toggle-w: 24px;
+
+  appearance: none;
+  color: inherit;
+  display: grid;
+  gap: var(--menu-toggle-gap);
+  height: var(--menu-toggle-w);
+  outline: none;
+  place-content: center;
+  width: var(--menu-toggle-w);
+}
+.menu-toggle::before,
+.menu-toggle::after {
+  background-color: currentColor;
+  border-radius: var(--menu-toggle-bdrs);
+  content: "";
+  height: var(--menu-toggle-h);
+  transform-origin: center center;
+  transition: rotate var(--menu-trsdu) var(--menu-trstf);
+  width: var(--menu-toggle-w);
+}
+.menu-toggle:checked { gap: 0; }
+.menu-toggle:checked::after {
+  rotate: 45deg;
+  translate: var(--menu-toggle-h) calc(var(--menu-toggle-h) / -2);
+}
+.menu-toggle:checked::before {
+  rotate: -45deg;
+  translate: var(--menu-toggle-h) calc(var(--menu-toggle-h) / 2);
+}
+
+/* === Reset, Demo-Styles === */
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  margin: 0;
+}
+main {
+  margin-inline: auto;
+  max-inline-size: 1200px;
+  padding-inline: calc(env(safe-area-inset-left) + 1rem) calc(env(safe-area-inset-right) + 1rem);
+}
+
+/* === Icons === */
+.icon, .icon-stroke {
+  height: var(--icon-sz, 2em);
+  width: var(--icon-sz, 2em);
+}
+.icon-stroke {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width:1;
+  stroke: currentColor;
+}
+  </style>
+</head>
+<body>
+
+  <header class="menu-wrapper">
+    <a href="/" class="menu-home"><svg class="icon"><use xlink:href="#logo"></use></svg>HTML Rocks!</a>
+    <label class="menu-toggle-label" aria-label="Toggle flyout menu">
+      <input type="checkbox" class="menu-toggle">
+    </label>
+    <div class="menu-flyout">
+      <nav class="menu-main">
+        <a href="#">Products</a>
+        <a href="#">Deals</a>
+        <a href="#">News</a>
+        <a href="#">Support</a>
+        <a href="#">Company</a>
+      </nav>
+      <nav class="menu-cta">
+        <a href="#"><svg class="icon-stroke"><use xlink:href="#search"></use></svg>Search</a>
+        <a href="#"><svg class="icon-stroke"><use xlink:href="#shopping-bag"></use></svg>Cart</a>
+      </nav>
+    </div>
+  </header>
+  
+  <main>
+    <p>
+      <small>Very light menu, using minimal markup and styles, with <code>border-image</code> for the "to-edge"-background on desktop, <code>display:contents</code> to clear mobile styles for desktop, and <code>:has(:checked)</code> to toggle mobile flyout.
+      Not working in Firefox until <code>:has()</code> is supported.</small>
+    </p>
+  </main>
+  
+  <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+      <symbol id="shopping-bag" viewBox="0 0 24 24">
+        <path d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z"></path>
+        <path d="M9 11v-5a3 3 0 0 1 6 0v5"></path>
+      </symbol>
+      <symbol id="search" viewBox="0 0 24 24">
+        <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
+        <path d="M21 21l-6 -6"></path>
+      </symbol>
+      <symbol id="logo" viewBox="0 0 512 512" fill="currentColor">
+        <path d="M193.431 261.016h125.138l-6.507 73.394L256 348.67l-56.062-14.26-3.879-43.707h-57.203l7.886 88.98L256 407.465l109.262-27.782 15.141-170.895H188.801l-5.061-57.106h201.727l5.053-56.986H121.481l14.743 166.32z"/>
+        <path d="m20.366 0 .984 10.627 41.882 452.361L256 512l192.767-49.012L491.634 0H20.366zm382.139 423.462L256 460.713l-146.505-37.251L74.888 49.711h362.223l-34.606 373.751z"/>
+      </symbol>
+    </defs>
+  </svg>
+  
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Changing color - Animation</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: black;
+      }
+      div {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(194, 139, 0);
+        animation: change-color 4s infinite;
+      }
+      @keyframes change-color {
+        0% {
+          background-color: rgb(194, 139, 0);
+          box-shadow: 0 0 30px rgb(194, 139, 0);
+          transform: translateY(0);
+        }
+        25% {
+          background-color: rgb(97, 140, 123);
+          box-shadow: 0 0 30px rgb(97, 140, 123);
+          transform: translateY(-20px);
+        }
+        50% {
+          background-color: rgb(0, 118, 211);
+          box-shadow: 0 0 30px rgb(0, 118, 211);
+
+          transform: translateY(0);
+        }
+        75% {
+          background-color: rgb(64, 122, 87);
+          box-shadow: 0 0 30px rgb(64, 122, 87);
+          transform: translateY(-20px);
+        }
+        100% {
+          background-color: rgb(194, 139, 0);
+          box-shadow: 0 0 30px rgb(194, 139, 0);
+
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <svg
+        style="transform: rotate();"
+        width="16"
+        height="11"
+        viewBox="0 0 16 11"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7.05343 9.75057L0.412806 3.10994C-0.0461788 2.65096 -0.0461788 1.90877 0.412806 1.45467L1.51632 0.351154C1.97531 -0.10783 2.71749 -0.10783 3.17159 0.351154L7.87863 5.05819L12.5857 0.351154C13.0446 -0.10783 13.7868 -0.10783 14.2409 0.351154L15.3444 1.45467C15.8034 1.91365 15.8034 2.65584 15.3444 3.10994L8.70382 9.75057C8.2546 10.2096 7.51242 10.2096 7.05343 9.75057Z"
+          fill="white"
+        />
+      </svg>
+    </div>
+  </body>
+</html>
